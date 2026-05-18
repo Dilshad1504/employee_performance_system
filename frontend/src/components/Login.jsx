@@ -17,7 +17,7 @@ const Login = ({ setToken }) => {
       const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
       const payload = isLogin ? { email: formData.email, password: formData.password } : formData;
       
-      const { data } = await axios.post(`http://localhost:5000${endpoint}`, payload);
+      const { data } = await axios.post(endpoint, payload);
       setToken(data.token);
     } catch (err) {
       setError(err.response?.data?.message || 'Authentication failed');
